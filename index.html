@@ -5,25 +5,33 @@
   <title>○×クイズ - デザイン工学部</title>
   <style>
     body {
-      margin: 0;
-      font-family: "Arial", sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 20px;
+        
+        background-size: cover;            /* 横幅100%にフィット、はみ出しをカット */
+        background-position: center top;
+        background-repeat: no-repeat;
+        width: 100%;
+        aspect-ratio: 1080 / 1920;         /* 元画像の比率に合わせて調整（ここ重要） */
+        position: relative;                /* 子要素（メニューアイコン）を重ねるため */
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #FBF9F1;     
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
     }
     .container {
       max-width: 400px;
       width: 100%;
-      background: white;
+      background: #E2338C;
       padding: 20px;
     }
     .question {
-      font-size: 1.3em;
-      margin-bottom: 20px;
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        line-height: 2;
     }
     .buttons {
       display: flex;
@@ -35,12 +43,14 @@
       padding: 15px 25px;
       border: none;
       border-radius: 12px;
-      color: white;
+      color: #E2338C;
       transition: transform 0.1s;
       box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
     }
-    .btn.true { background: #f44336; }  /* 赤 */
-    .btn.false { background: #2196f3; } /* 青 */
+    .btn.true { 
+        background: #ffffff;
+    }  /* 赤 */
+    .btn.false { background: #ffffff; } /* 青 */
     .btn:active {
       transform: scale(1.1);
     }
@@ -52,20 +62,29 @@
       margin-bottom: 10px;
     }
     .explanation {
-      font-size: 1em;
-      color: #555;
-      margin-bottom: 20px;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+        line-height: 2;
+        /* font-size: 1em; */
+        color: #ffffff;
+        margin-bottom: 20px;
     }
     .next-btn {
-      display: none;
-      padding: 12px 24px;
-      background: #4fc3f7;
-      border: none;
-      border-radius: 12px;
-      color: white;
-      font-size: 1em;
-      margin-top: 10px;
-    }
+  display: inline-block;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.next-btn-image {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+
+
+
     .next-btn:hover {
       cursor: pointer;
     }
@@ -117,7 +136,10 @@
       </div>
       <div class="result" id="result"></div>
       <div class="explanation" id="explanation"></div>
-      <button class="next-btn" id="nextBtn" onclick="nextQuestion()" style="display: none;">次の問題へ</button>
+      <button class="next-btn" id="nextBtn" onclick="nextQuestion()" style="display: none;">
+        <img src="butt-05.png" alt="次の問題へ" class="next-btn-image">
+      </button>
+      
     </div>
 
 <div class="score-section" id="scoreSection">
